@@ -1,7 +1,15 @@
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+//! Waring: Do not use in production
+app.use(cors({
+    origin: "*"
+}));
+
+app.use(express.json());
 
 app.get("/", async (req, res) => {
     res.send(
